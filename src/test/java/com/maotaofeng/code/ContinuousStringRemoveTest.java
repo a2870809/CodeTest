@@ -1,6 +1,6 @@
 package com.maotaofeng.code;
 
-import com.maotaofeng.code.strategy.ContinuousStringRemove;
+import com.maotaofeng.code.strategy.impl.ContinuousStringRemoveImpl;
 import com.maotaofeng.code.utils.StringProcessor;
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class ContinuousStringRemoveTest {
     public void testRemoveString() {
 
         //get StringProcessor
-        StringProcessor processor = new StringProcessor(new ContinuousStringRemove());
+        StringProcessor processor = new StringProcessor(new ContinuousStringRemoveImpl());
 
         //test
         assertEquals("d", processor.processString("aabcccbbad"));

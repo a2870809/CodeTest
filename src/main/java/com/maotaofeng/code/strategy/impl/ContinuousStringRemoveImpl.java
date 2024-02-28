@@ -1,14 +1,16 @@
-package com.maotaofeng.code.strategy;
+package com.maotaofeng.code.strategy.impl;
+
+import com.maotaofeng.code.strategy.StringProcessingStrategy;
 
 import java.util.Stack;
 
 /**
- * Replace consecutive strings
+ * Remove consecutive strings
  */
-public class ContinuousStringReplace implements StringProcessingStrategy {
+public class ContinuousStringRemoveImpl implements StringProcessingStrategy {
 
     /**
-     * replace String
+     * remove String
      * @param input String to be processed
      * @return String Processed string
      */
@@ -39,18 +41,13 @@ public class ContinuousStringReplace implements StringProcessingStrategy {
                     i = i + count - 1;
                 }
             }
-
-            //Replace matching string
+            //Remove matching string
             while (!stack.isEmpty()) {
                 int end = stack.pop();
                 int start = stack.pop();
-                if(result.charAt(start) == 'a'){
-                    result.delete(start, end + 1);
-                }else{
-                    char replacement = (char) (result.charAt(start) - 1);
-                    result.replace(start, end + 1, String.valueOf(replacement));
-                }
+                result.delete(start, end + 1);
             }
+
         } while (changesMade);
         return result.toString();
     }

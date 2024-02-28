@@ -1,7 +1,6 @@
 package com.maotaofeng.code;
 
-import com.maotaofeng.code.strategy.ContinuousStringRemove;
-import com.maotaofeng.code.strategy.ContinuousStringReplace;
+import com.maotaofeng.code.strategy.impl.ContinuousStringReplaceImpl;
 import com.maotaofeng.code.utils.StringProcessor;
 import org.junit.Test;
 
@@ -19,7 +18,7 @@ public class ContinuousStringReplaceTest {
     public void testReplaceString() {
 
         //get StringProcessor
-        StringProcessor processor = new StringProcessor(new ContinuousStringReplace());
+        StringProcessor processor = new StringProcessor(new ContinuousStringReplaceImpl());
 
         //test
         assertEquals("d", processor.processString("abcccbad"));
